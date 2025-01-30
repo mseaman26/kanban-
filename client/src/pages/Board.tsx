@@ -43,7 +43,6 @@ const Board = () => {
   }
 
   useLayoutEffect(() => {
-    window.location.assign('/loginpage');
     checkLogin();
   }, []);
 

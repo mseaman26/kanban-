@@ -28,7 +28,7 @@ const router = createBrowserRouter([
         element: <CreateTicket />
       },
       {
-        path: '/loginpage',
+        path: 'loginpage',
         element: <Login />
       }
     ]
