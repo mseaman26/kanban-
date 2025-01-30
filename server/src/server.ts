@@ -15,13 +15,13 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // Serving static files from the client build directory
-app.use(express.static(join(__dirname, '../client/dist')));
+app.use(express.static(join(__dirname, '../../client/dist')));
 
 app.use(express.json());
 app.use(routes);
 
 app.get('*', (_req, res) => {
-  res.sendFile(join(__dirname, '../client/dist/index.html'));  // Serve the index.html of your React app
+  res.sendFile(join(__dirname, '../../client/dist/index.html'));  // Serve the index.html of your React app
 });
 
 sequelize.sync({force: false}).then(() => {
