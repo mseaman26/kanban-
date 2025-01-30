@@ -6,18 +6,20 @@ dotenv.config();
 import express from 'express';
 import routes from './routes/index.js';
 import { sequelize } from './models/index.js';
+import path from 'path'; 
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Serves static files in the entire client's dist folder
-app.use(express.static('../../client/dist'));
+app.use(express.static(path.join(__dirname, '../client/dist')));
 
 app.use(express.json());
 app.use(routes);
 
 app.get('*', (_req, res) => {
-  res.sendFile('../../client/dist/index.html');
+  res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
+
 });
 
 sequelize.sync({force: forceDatabaseRefresh}).then(() => {
